@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator URL Undangan</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    input, button {
+        padding: 10px;
+        font-size: 1em;
+        width: 80%;
+        max-width: 400px;
+        margin-bottom: 10px;
+    }
+    #generated-url {
+        margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h2>Generator URL Undangan</h2>
+    <input type="text" id="namaTamu" placeholder="Masukkan nama tamu" />
+    <br>
+    <button onclick="generateURL()">Buat & Salin URL</button>
+    <br>
+    <input type="text" id="generated-url" readonly />
+
+    <script>
+        function generateURL() {
+        const nama = document.getElementById("namaTamu").value.trim();
+        if (!nama) {
+            alert("Masukkan nama tamu terlebih dahulu.");
+            return;
+        }
+
+      //const baseUrl = "http://192.168.0.20:8000/index.html";
+        const baseUrl = "file:///C:/Users/USER/OneDrive/Documents/data%20vai/data%20vai/web/undangan%20ria/undangan%20digital/index.html";
+        const encodedNama = encodeURIComponent(nama);
+        const fullUrl = `${baseUrl}?to=${encodedNama}`;
+
+        const output = document.getElementById("generated-url");
+        output.value = fullUrl;
+        output.select();
+        document.execCommand("copy");
+
+        alert("URL telah disalin ke clipboard:\n" + fullUrl);
+    }
+    </script>
+</body>
+</html>
