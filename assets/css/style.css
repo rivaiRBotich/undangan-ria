@@ -1,3 +1,9 @@
+/* Reset default margin dan padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -8,6 +14,13 @@ body {
   background: url('../../img/background.png') no-repeat center center/cover;
 }
 
+.nama-pengantin {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: pink;
+  margin-bottom: 20px;
+}
+
 .container {
   max-width: 480px;
   margin: auto;
@@ -16,9 +29,30 @@ body {
 }
 
 .cover {
-  background: url('../../img/background.png') no-repeat center center/cover;
-  padding: 80px 20px;
-  color: #fff;
+  background-image: url('https://source.unsplash.com/800x600/?wedding');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Efek gelap transparan di cover */
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.cover > * {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -35,18 +69,17 @@ h2 {
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 6px 0;
-  left: calc((100% - 480px) / 2);
-  border-top: 1px solid #ccc;
-  /* z-index: 1000; */
+  padding: 10px 0;
+  max-width: 480px;
+  margin: auto;
 }
-
 
 .bottom-nav a {
   color: #333;
@@ -54,7 +87,6 @@ h2 {
   font-size: 0.9em;
   
 }
-
 
 .bottom-nav .nav-link {
   /* display: flex; */
@@ -77,9 +109,6 @@ h2 {
   color: #fff;
   font-weight: bold;
 }
-
-
-
 
 .bottom-nav .nav-link.active i {
   color: white;
@@ -196,3 +225,61 @@ section {
   transform: translateY(0);
 }
 
+.lokasi-title {
+  color: #d87fa1;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.lokasi-alamat {
+  color: #215ca0;
+  margin-bottom: 15px;
+  font-weight: 100;
+}
+
+.lokasi-button {
+  background-color: #f28cb1;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  /* display: inline-block; */
+  transition: 0.3s;
+}
+
+.lokasi-button i {
+  margin-right: 6px;
+  color: #fff;
+}
+
+.lokasi-button:hover {
+  background-color: #e6719f;
+  transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 500px) {
+  .nama-pengantin {
+    font-size: 2.2em;
+  }
+  
+  .buka-undangan {
+    padding: 8px 16px;
+    font-size: 1em;
+  }
+  
+  .section h2 {
+    font-size: 1.5em;
+  }
+  
+  .bottom-nav {
+    font-size: 0.75em;
+    padding: 8px 0;
+  }
+  
+  .bottom-nav a i {
+    font-size: 1em;
+  }
+}
+  
